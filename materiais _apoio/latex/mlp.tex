@@ -1,0 +1,29 @@
+#Soma e Ativação
+\(z = b + \sum_i w_i * x_i \)
+\(y = \phi (z) = \frac{1}{1+e^{-z}}\)
+
+#Gradiente
+\(Gradiente: \frac{\partial\epsilon}{\partial w} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial z} \cdot \frac{\partial z}{\partial w} \)
+
+#Primeira Derivada Parcial
+\(E^{saida} = \frac{1}{2} (g - y^{saida})^2 \)
+\((g - y^{saida})^2 = \mu^2 \)
+\(\epsilon = \frac{\partial E}{\partial y} = \frac{1}{2} \cdot 2(g-y^{saida}) \cdot \frac{d\mu}{dy} \) 
+\(\epsilon = \frac{\partial E}{\partial y} = \frac{1}{2} \cdot 2(g-y^{saida}) \cdot -1 = -(g-y^{saida}) \)
+\(\epsilon^{saida} = y^{saida}-g \)
+
+#Segunda Derivada Parcial
+\( y^{saida} = \phi(z^{saida}) = \frac{1}{1+e^{-z^{saida}}} \)
+\(\frac{\partial y}{\partial z} = \frac{d\phi(z)}{dz} = \phi(z)(1-\phi(z)) \)
+\(\delta^{saida} = y^{saida}(1-y^{saida}) \cdot \epsilon^{saida}\)
+
+#Terceira Derivada Parcial 
+\( \frac{d}{dz} = y^{saida} (1-y^{saida}) = \delta^{saida} \) 
+\(\epsilon^{oculto} = y^{oculto}(1-y^{oculto})\)
+\(\delta^{oculto} = \delta^{saida} \cdot w^{saida} \cdot \epsilon^{oculto}\)
+
+#Ajustando os pesos
+\(w_i^{saida} = w_i^{saida} - (\eta \cdot \delta^{saida} * y_i^{oculto}) \)
+\(b_i^{saida} = b_i^{saida} - (\eta \cdot \delta^{saida})\)
+\(w_i^{oculto} = w_i^{oculto} - (\mu \cdot \delta^{oculto} * x_i) \)
+\(b_i^{oculto} = b_i^{oculto} - (\eta \cdot \delta^{oculto})\)
