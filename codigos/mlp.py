@@ -55,7 +55,7 @@ class MLP:
             erro = self.derivada_parcial_erro(neuronio, entrada)
             erros_camada_saida.append(erro)
             #Segunda Derivada: derivada de saída do neurônio pela entrada esperada
-            ativacao = self.derivada_sigmoid(neuronio.y)
+            ativacao = self.derivada_total_sigmoid(neuronio.y)
             #Produto da primeira derivada parcial (erro) pela segunda (ativação)
             diferenca = erro * ativacao
             diferencas_camada_saida.append(diferenca)

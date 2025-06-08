@@ -20,7 +20,7 @@ class Perceptron:
                 print(f'\t Entrada: {x}, Saída = {y}')
                 for i in range(len(x)):
                     novo_peso = self.n.w[i] + (erro * x[i] * self.taxa_aprendizado)
-                    print(f'\t\t w ({novo_peso}) =  w ({self.n.w[i]}) + Erro ({erro}) * x ({x[i]}) * alpha ({self.taxa_aprendizado})')
+                    print(f'\t\t w ({novo_peso}) =  w ({self.n.w[i]}) + Erro ({erro}) * x ({x[i]}) * eta ({self.taxa_aprendizado})')
                     self.n.w[i] = novo_peso
                     self.n.b += self.taxa_aprendizado * erro
             
