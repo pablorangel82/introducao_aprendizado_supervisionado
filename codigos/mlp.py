@@ -2,7 +2,7 @@ from neuronio import Neuronio
 import logging
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(format='%(message)s',level=logging.INFO)
 
 class MLP:
     
@@ -93,9 +93,9 @@ class MLP:
                 self.forward(entrada)
                 erro_total += self.backpropagation(entrada)
             if (iteracao + 1) % 1000 == 0 or iteracao == 0:
-                print(f'Iteração {iteracao + 1}, Erro total: {erro_total}')
+                logging.info(f'Iteração {iteracao + 1}, Erro total: {erro_total}')
 
     def testar(self, entradas):
         for entrada in entradas:
             saida = self.forward(entrada)
-            print(f'Entrada: {entrada.x} -> Saída Recebida: {saida:.6f} | Esperada: {entrada.g}')
+            logging.info(f'Entrada: {entrada.x} -> Saída Recebida: {saida:.6f} | Esperada: {entrada.g}')
